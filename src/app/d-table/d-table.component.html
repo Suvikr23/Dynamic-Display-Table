@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 mt-4">
+      <div class="dropdown float-right">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Customize Columns
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li *ngFor="let item of comDropdownData, let i = index">
+            <span class="dropdown-item">
+              <input type="checkbox" (change)="addprop1($event)" />&nbsp;{{item}}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-2 mt-4 text-right float-right">
+      <button class="button btn-primary" (click)="checkDbUpdate()">Get Data</button>
+    </div>
+  </div>
+  <div class="row overflow-scroll">
+    <div class="col-12 mt-4">
+      <table class="table">
+        <thead>
+          <tr class="d-flex border-top-0 border-secondary">
+            <th class="col-3 pl-4">Company</th>
+            <th *ngFor="let head of tableHeadingList" scope="col" class="col-2 pl-4">
+              {{head}}
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="jsonData">
+          <tr *ngFor="let item of jsonData" class="d-flex border-top-0 border-secondary">
+            <td class="col-3 pl-2 main-col">
+              <strong>{{item.name}}</strong>
+              <p class="text-truncate">{{item.description}}</p>
+            </td>
+            <td class="col-2 pl-3">{{item.location}}</td>
+            <td class="col-2 pl-3">{{item.market}}</td>
+            <td class="col-2 pl-3">
+              <a href="{{item.website}}">{{item.website}}</a>
+            </td>
+            <td class="col-2 pl-3">{{item.employees}}</td>
+            <td class="col-2 pl-3">{{item.stage}}</td>
+            <td class="col-2 pl-3">{{item.founders}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
