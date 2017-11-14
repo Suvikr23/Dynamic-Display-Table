@@ -9,14 +9,15 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li *ngFor="let item of comDropdownData, let i = index">
             <span class="dropdown-item">
-              <input type="checkbox" (change)="addprop1($event)" />&nbsp;{{item}}
+              <input type="checkbox" (change)="addProperty($event, i)" />&nbsp;{{item}}
             </span>
           </li>
         </ul>
       </div>
     </div>
     <div class="col-2 mt-4 text-right float-right">
-      <button class="button btn-primary" (click)="checkDbUpdate()">Get Data</button>
+      <button class="button btn-secondary rounded-circle"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></button>
+      <button class="button btn-secondary rounded-circle"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
     </div>
   </div>
   <div class="row overflow-scroll">
@@ -24,8 +25,8 @@
       <table class="table">
         <thead>
           <tr class="d-flex border-top-0 border-secondary">
-            <th class="col-3 pl-4">Company</th>
-            <th *ngFor="let head of tableHeadingList" scope="col" class="col-2 pl-4">
+            <th class="col-3 pl-3">Company</th>
+            <th *ngFor="let head of tableHeadingList" scope="col" class="col-2 pl-3">
               {{head}}
             </th>
           </tr>
